@@ -158,18 +158,38 @@ struct Index {
     // > 从上往下布局用 Column，从左往右用 Row
     // > Note：`build()` 中有且只能有一个`容器组件`
     Column() {
+      // 默认 Text 和 Row 是从左往右展示的，而其居中显示是因为没有设置宽度
       Text('小说简介')
-        .fontSize(30)
+        .width('100%')
+        // .backgroundColor(Color.Grey)
+        .height(40)
+        .fontSize(24)
+        .fontWeight(700) // 100~900 数字，越大越粗
+        // .fontWeight(FontWeight.Bold)
       Row() {
         Text('都市')
+          .width(50)
+          .height(30)
+          .backgroundColor(Color.Orange)
         Text('生活')
+          .width(50)
+          .height(30)
+          .backgroundColor(Color.Yellow)
         Text('情感')
+          .width(50)
+          .height(30)
+          .backgroundColor(Color.Pink)
         Text('克苏鲁')
+          .width(50)
+          .height(30)
+          .backgroundColor(Color.Green)
       }
-      .height('10%')
-    }.width('100%')
-
-
-
+      .width('100%')
+    }
+    // width 的百分比就相当于向对父级来计算的，如果没有父级就相对于整行计算
+    .width('100%')
+    // 百分比需要用引号，数字直接写就行
+    // .width(200)
+    // .backgroundColor(Color.Pink)
   }
 }
