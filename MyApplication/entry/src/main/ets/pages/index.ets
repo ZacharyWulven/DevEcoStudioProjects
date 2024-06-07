@@ -1,26 +1,30 @@
 @Entry
 @Component
 struct Index {
-   build() {
+  build() {
     Column() {
-      Text('诸葛亮')
-        .fontColor(Color.Green)
-        .fontSize(24)
-        .height(40)
+      Text('HarmonyOS 开发')
         .width('100%')
+        .fontColor(Color.Black)
+        .fontSize(24)
+        .lineHeight(50)
+        .fontWeight(FontWeight.Bold)
 
-      Row() {
-        Text('置顶')
-          .fontColor('#DF3C50')
-          .width(40)
-        Text('学院')
-          .fontColor('#00a1a1')
-          .width(40)
-        Text('3999评论')
-          .fontColor('#0f3c5f')
-      }
-      .width('100%')
+      Text('学习基础知识：学习 TypeScript 的不同类型和类型运算符，' +
+        '了解其作用和用法。 探讨高级话题：理解 TypeScript 复杂的类型系统，' +
+        '学习如何安全地处理错误和构建异步程序。 ' + '联系实际应用：' +
+        '在你钟爱的前后端框架中使用 TypeScript，' +
+        '把现有的 JavaScript 项目迁移到 TypeScript，' +
+        '以及在生产环境中运行 TypeScript 应用。')
+        .width('100%')
+        .lineHeight(24)
+        .textOverflow({
+            overflow: TextOverflow.Ellipsis
+        })
+        // 必须配合 maxLines 才有效果
+        // 如果设置 overflow: TextOverflow.MARQUEE 则 maxLines 就没有用了
+        .maxLines(3)
     }
-
-  }
+    .width('100%')
+  } 
 }
