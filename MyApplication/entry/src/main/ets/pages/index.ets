@@ -3,31 +3,26 @@
 struct Index {
   build() {
     Column() {
-      Image($r('app.media.ic_gallery_create'))
+      // 1 正圆 (头像)
+      Image($r('app.media.startIcon'))
         .width(100)
-        .fillColor('#ff5860')
+        .height(100)      // 宽高一样
+        .borderRadius(50) // 圆角为高度的一半
+        .padding(5)
+        .backgroundColor(Color.Pink)
         .margin({
-          bottom: 20
+          bottom: 30
         })
 
-      Text('直面天命')
-        .fontSize(20)
-        .fontWeight(FontWeight.Bold)
-        .margin({
-          bottom: 60
-        })
+      // 2 胶囊按钮
+      Text('今天还没打开~')
+        .height(50)
+        .borderRadius(25)
+        .backgroundColor(Color.Pink)
+        .width(200)
 
-      Button('QQ 登录')
-        .width('100%')
-        .margin({
-          bottom: 20
-        })
-
-      Button('微信登录')
-        .width('100%')
-        .backgroundColor('#ddd')
-        .fontColor('#000')
     }
+    // .backgroundColor(Color.Black)
     .width('100%')
     .padding(30)
   }
