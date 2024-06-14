@@ -3,26 +3,17 @@
 struct Index {
   build() {
     Column() {
-      // 1 正圆 (头像)
-      Image($r('app.media.startIcon'))
-        .width(100)
-        .height(100)      // 宽高一样
-        .borderRadius(50) // 圆角为高度的一半
-        .padding(5)
-        .backgroundColor(Color.Pink)
-        .margin({
-          bottom: 30
-        })
-
-      // 2 胶囊按钮
-      Text('今天还没打开~')
-        .height(50)
+      // 1 背景图
+      Text('直面天命')
+        .height(100)
+        .width(200)
         .borderRadius(25)
         .backgroundColor(Color.Pink)
-        .width(200)
-
+        // 设置背景图 .backgroundImage(图片地址, 平铺方式枚举) 默认不平铺
+        .backgroundImage($r('app.media.startIcon'), ImageRepeat.NoRepeat)
+        .backgroundImagePosition({x: 100, y: 50})
+        .backgroundImagePosition(Alignment.Center)
     }
-    // .backgroundColor(Color.Black)
     .width('100%')
     .padding(30)
   }
