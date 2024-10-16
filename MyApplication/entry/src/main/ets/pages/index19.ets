@@ -12,7 +12,7 @@ struct Index {
           .width(20)
           .backgroundColor(Color.White)
         Text('帮助')
-          .fontColor('#fff')
+          .fontColor('#fff3')
       }
       .width('100%')
       .justifyContent(FlexAlign.SpaceBetween) // 一左一右
