@@ -2,9 +2,83 @@
 
 console.log('hello world !');
 
-let age = 10;
-console.log('age is:', age);
 
-let sex: 'man' | 'woman' | 'secret' = 'man';
-console.log('sex is:', sex);
-// sex = 'a'   // Error 
+// 可选参数: 调用时未传可选参数，则该参数值为 undefined
+function getPersonInfo(name: string, age: number, gender?: string): string {
+    if (gender === undefined) {
+        gender = '未知'
+    }
+    return `name: ${name}, age: ${age}, gender: ${gender}`;
+}
+
+console.log(getPersonInfo('Tom', 21));
+console.log(getPersonInfo('Tom', 21, 'man'));
+
+
+// 默认参数
+function getPersonInfo2(name: string, age: number, gender: string = '未知'): string {
+    return `name: ${name}, age: ${age}, gender: ${gender}`;
+}
+
+console.log(getPersonInfo('Tom', 21));
+
+// 任意类型
+function println(message: any) {
+    console.log(message);
+}
+
+println(1);
+println('abc');
+
+function print(message: any): void {
+    console.log(message);
+}
+console.log(print(1));
+
+function sum(a: number, b: number) {
+    return a + b;
+}
+console.log(sum(1, 2));
+
+console.log('-----------------------');
+
+// 匿名函数
+let arr: number[] = [1, 2, 3, 4, 5];
+arr.forEach(function (number) {
+    console.log(number);
+});
+console.log('-----------------------');
+
+// arr.forEach(print)
+
+arr.forEach(item => console.log(item));
+
+
+// Classes
+class Person {
+    id: number;
+    name: string;
+    age: number = 18;
+
+    constructor(id: number, name: string) {
+        this.id = id
+        this.name = name
+    }
+
+    introduce(): string {
+        return `hello, I'm ${this.name}, I'm ${this.age} years old.`
+    }
+}
+
+let p = new Person(1, 'Zack')
+println(p.introduce())
+
+class Utils {
+
+    static toLowerCase(str: string) {
+        return str.toLowerCase();
+    }
+
+}
+
+println(Utils.toLowerCase('HELLO'))
