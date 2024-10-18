@@ -56,9 +56,9 @@ arr.forEach(item => console.log(item));
 
 // Classes
 class Person {
-    id: number;
-    name: string;
-    age: number = 18;
+    private id: number;
+    protected name: string;
+    public age: number = 18;
 
     constructor(id: number, name: string) {
         this.id = id
@@ -82,3 +82,73 @@ class Utils {
 }
 
 println(Utils.toLowerCase('HELLO'))
+
+
+// 继承
+class Student extends Person {
+
+    classNum: string;
+
+    constructor(id: number, name: string, classNum: string) {
+        super(id, name);
+        this.classNum = classNum
+    }
+
+    introduce(): string {
+
+        return super.introduce() + 'I am a student'
+    }
+}
+
+let s = new Student(1, 'tom', '三年二班');
+println(s);
+println(s.introduce());
+
+
+// 访问修饰符
+
+
+// 接口
+
+interface Human {
+    id: number;
+    name: string;
+    age: number;
+
+    introduce(): void;
+}
+
+class Man implements Human {
+    id: number;
+    name: string;
+    age: number;
+
+    constructor (id: number, name: string, age: number) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
+
+    introduce(): void {
+        console.log('Hello, I am a Man');
+    }
+
+}
+
+// 模块化，导入/导出
+export function hello() {
+    console.log('hello module A');
+}
+
+export const helloText = 'hello world!';
+const num = 1;
+
+// 模块化，默认导入/导出
+
+// export default function sayHello() {
+//     console.log('say hello');
+// }
+
+export default function() {
+    console.log('say hello');
+}
